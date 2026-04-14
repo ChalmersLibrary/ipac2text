@@ -37,8 +37,8 @@ Please OCR the text and extract these fields if present:
 - series (often preceded by "serie" or "=")
 - isbn
 - call_number (usually top right corner)
-- classification_number (usually bottom left corner)
-- subject_headings (as a list)
+- classification_code (usually bottom left corner)
+- subject_headings (as a list if there are multiple)
 - reference (usually preceded by "se" or "ref:")
 - notes
 - bottom_note (bottom center, usually an acronym, i.e. "vb" or "kh")

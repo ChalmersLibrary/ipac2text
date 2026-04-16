@@ -1,3 +1,5 @@
 .env
 .log
 /images/*
+__pycache__/
+

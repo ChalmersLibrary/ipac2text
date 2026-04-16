@@ -28,6 +28,7 @@ def ocr_with_claude(image_path):
                     "text": """This is a scanned type written library catalog card with hand written notes.
 Please OCR the text and extract these fields if present:
 - authors (surnames are often underlined and sometimes following the first name, "/" is often used to mark calling name, / should be excluded in response)
+- editors (usually preceded by "ed" or "ed." or "red." or "redaktör" or "editor") and in the form "firstname lastname" (if possible to determine, otherwise return as is)
 - title
 - place_of_publication
 - publisher
@@ -39,10 +40,15 @@ Please OCR the text and extract these fields if present:
 - call_number (usually in the top right corner, normally hand written, usually a short combination of letters and numbers, often with a space in between, e.g., "XZ 1234", sometimes preceded by "+")
 - subject_headings (as a list if there are multiple)
 - classification_code (usually located in the bottom left corner, normally in Universal Decimal Classification (UDC) format (notation, e.g., 000.123.456), sometimes beginning with aphabetic characters, e.g. "Sv.", usually typed)
-- reference (usually preceded by "se" or "ref:")
+- reference (usually preceded by "se: " or "se " or "hänvis" or "ref:")
 - notes
-- bottom_note (bottom center, usually an acronym, i.e. "vb" or "kh")
+- bottom_note (bottom center, usually an acronym, e.g. ["vb" or "kh"])
 - systematic_card, 1 or 0, return 1 if the card only consists of a single call number and short description (otherwise return 0)
+- reference_card, 1 or 0, return 1 if reference has a value, otherwise return 0
+Also include these quality/review fields:
+- needs_review (true/false — set true if you are uncertain about any part of the transcription and/or overall confidence is classified as low)
+- review_reasons (a list of specific reasons if needs_review is true, e.g. ["ambiguous call numbers","author name unclear", "possible smudge on year", "handwriting difficult to read"])
+- confidence (overall confidence as "high", "medium", or "low")
 
 Return as JSON only, no explanation."""
                 }

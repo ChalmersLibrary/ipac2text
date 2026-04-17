@@ -25,7 +25,7 @@ def ocr_with_claude(image_path):
                 },
                 {
                     "type": "text",
-                    "text": """This is a scanned type written library catalog card with hand written notes.
+                    "text": """This is a scanned type written library catalog card with handwritten notes.
 Please OCR the text and extract these fields if present:
 - authors (surnames are often underlined and sometimes following the first name, "/" is often used to mark calling name, / should be excluded in response)
 - editors (usually preceded by "ed" or "ed." or "red." or "redaktör" or "editor") and in the form "firstname lastname" (if possible to determine, otherwise return as is)
@@ -34,17 +34,23 @@ Please OCR the text and extract these fields if present:
 - publisher
 - year_of_publication
 - pages (often preceded or followed by "s." or "sidor" or or "s" or "p" or "pp")
+- format - Example of formats are ["4:o", "8:o", "12:o", "Fol"]
 - source_publication (usually preceded by "in:" or "i:" or "ur:")
-- series (often preceded by "serie" or "=")
+- series - often preceded by "serie" or "=", can be enclosed in slashes (“/”) or parentheses
 - isbn
 - call_number (usually in the top right corner, normally hand written, usually a short combination of letters and numbers, often with a space in between, e.g., "XZ 1234", sometimes preceded by "+")
+- main_heading - usually in top left corner, often in the form of a single word or short sentence, usually underlined with a dashed line, e.g. "Physics" (underlined with dashed line)
 - subject_headings (as a list if there are multiple)
+- shelf (in the form of a square root symbol followed by a string, e.g. "√123-456", often preceded by a handwritten abbreviation, e.g. "br" or "hylla"), square root symbol should be excluded in response
 - classification_code (usually located in the bottom left corner, normally in Universal Decimal Classification (UDC) format (notation, e.g., 000.123.456), sometimes beginning with aphabetic characters, e.g. "Sv.", usually typed)
 - reference (usually preceded by "se: " or "se " or "hänvis" or "ref:")
 - notes
 - bottom_note (bottom center, usually an acronym, e.g. ["vb" or "kh"])
 - systematic_card, 1 or 0, return 1 if the card only consists of a single call number and short description (otherwise return 0)
 - reference_card, 1 or 0, return 1 if reference has a value, otherwise return 0
+- serial_publication_card, 1 or 0, usually indicated by year_of_publication being a range (e.g. "1950-") or multiple years (e.g. "1990, 1992, 1995"), often has information about volume ("vol." or "Vol.")
+- multipart_work_card, 1 or 0, return 1 if the card is describing a multipart work, usually identified with "Bd" or Band" or "bd." or "Bd" followed by numbers, eg "Bd 1-2" , otherwise return 0
+- monograph_card, 1 or 0, return 1 if all the previous are 0 and the card has a title and author/editor, otherwise return 0 
 Also include these quality/review fields:
 - needs_review (true/false — set true if you are uncertain about any part of the transcription and/or overall confidence is classified as low)
 - review_reasons (a list of specific reasons if needs_review is true, e.g. ["ambiguous call numbers","author name unclear", "possible smudge on year", "handwriting difficult to read"])

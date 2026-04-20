@@ -38,11 +38,12 @@ Please OCR the text and extract these fields if present:
 - source_publication (usually preceded by "in:" or "i:" or "ur:")
 - series - often preceded by "serie" or "=", can be enclosed in slashes (“/”) or parentheses
 - isbn
-- call_number (usually in the top right corner, normally hand written, usually a short combination of letters and numbers, often with a space in between, e.g., "XZ 1234", sometimes preceded by "+")
+- classification_code (usually in the top right corner, normally hand written, usually in the format letters and numbers, i.e. "QC 21", sometimes preceeded by a handwritten abbreviation [e.g. "br] that should not be included in response, sometimes preceded by "+")
+- call_number (usually in the top right corner, first alphabetic part of classification_code, e.g. "QB "
 - main_heading - usually in top left corner, often in the form of a single word or short sentence, usually underlined with a dashed line, e.g. "Physics" (underlined with dashed line)
 - subject_headings (as a list if there are multiple)
 - shelf (in the form of a square root symbol followed by a string, e.g. "√123-456", often preceded by a handwritten abbreviation, e.g. "br" or "hylla"), square root symbol should be excluded in response
-- classification_code (usually located in the bottom left corner, normally in Universal Decimal Classification (UDC) format (notation, e.g., 000.123.456), sometimes beginning with aphabetic characters, e.g. "Sv.", usually typed)
+- items (repeatable, usually located in the bottom left corner, normally notated, e.g., 59.123), sometimes beginning with aphabetic characters, e.g. "Sv.", usually typed)
 - reference (usually preceded by "se: " or "se " or "hänvis" or "ref:")
 - notes
 - bottom_note (bottom center, usually an acronym, e.g. ["vb" or "kh"])

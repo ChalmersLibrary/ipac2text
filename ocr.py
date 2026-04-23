@@ -33,17 +33,17 @@ Please OCR the text and extract these fields if present:
 - place_of_publication
 - publisher
 - year_of_publication
-- pages (often preceded or followed by "s." or "sidor" or or "s" or "p" or "pp")
+- extent - number of pages, (often preceded or followed by "s." or "sidor" or or "s" or "p" or "pp")
 - format - Example of formats are ["4:o", "8:o", "12:o", "Fol"]
 - source_publication (usually preceded by "in:" or "i:" or "ur:")
 - series - often preceded by "serie" or "=", can be enclosed in slashes (“/”) or parentheses
 - isbn
 - classification_code (usually in the top right corner, normally hand written, usually in the format letters and numbers, i.e. "QC 21", sometimes preceeded by a handwritten abbreviation [e.g. "br] that should not be included in response, sometimes preceded by "+")
-- call_number (usually in the top right corner, first alphabetic part of classification_code, e.g. "QB "
+- shelf (in the form of a square root symbol followed by a string, e.g. "√123-456", often preceded by a handwritten abbreviation, e.g. "br" or "hylla"), square root symbol should be replaced with "V" in response
+- call_number (usually in the top right corner, first alphabetic part of classification_code, e.g. "QB ", if "Shelf" is present, call_number call_number can be excluded in response
 - main_heading - usually in top left corner, often in the form of a single word or short sentence, usually underlined with a dashed line, e.g. "Physics" (underlined with dashed line)
 - subject_headings (as a list if there are multiple)
-- shelf (in the form of a square root symbol followed by a string, e.g. "√123-456", often preceded by a handwritten abbreviation, e.g. "br" or "hylla"), square root symbol should be excluded in response
-- items (repeatable, usually located in the bottom left corner, normally notated, e.g., 59.123), sometimes beginning with aphabetic characters, e.g. "Sv.", usually typed)
+- items (repeatable, usually located in the bottom left corner or centered, normally notated accession numbers [short year + number, e.g. "53.123"]), sometimes preceded by an abbreviation, e.g. "Sv.", that should be included in response, usually typed)
 - reference (usually preceded by "se: " or "se " or "hänvis" or "ref:")
 - notes
 - bottom_note (bottom center, usually an acronym, e.g. ["vb" or "kh"])

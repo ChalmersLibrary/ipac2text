@@ -61,6 +61,8 @@ if libris_data and libris_data['totalItems'] > 0:
     libris_match = 1
     print("Libris match found for query: " + lquery)
 
+    print("  ID:", libris_data['items'][0]['@id'] if '@id' in libris_data['items'][0] else '')
+
     # Extract additional fields from the response
     libris_year = libris_data['items'][0]['publication'][0]['librissearch:year_4_digits_short'] if 'librissearch:year_4_digits_short' in libris_data['items'][0]['publication'][0] else ''
     if 'hasTitle' in libris_data['items'][0]:
@@ -76,7 +78,7 @@ if libris_data and libris_data['totalItems'] > 0:
     print("  Title:", libris_title)
     print("  Year:", libris_year)
     
-
+    
 # TODO
 # Batch processing of multiple images
 # Looking up records in other databases (WorldCat, LC...)

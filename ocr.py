@@ -30,11 +30,12 @@ Please OCR the text and extract these fields if present:
 - authors (surnames are often underlined and sometimes following the first name, "/" is often used to mark calling name, / should be excluded in response)
 - editors (usually preceded by "ed" or "ed." or "red." or "redaktör" or "editor") and in the form "firstname lastname" (if possible to determine, otherwise return as is)
 - title
+- language - based on title, if possible to determine return as iso-639-2 code [eg. "eng" for English], otherwise return null
 - place_of_publication
 - publisher
 - year_of_publication
 - extent - number of pages, (often preceded or followed by "s." or "sidor" or or "s" or "p" or "pp")
-- format - Example of formats are ["4:o", "8:o", "12:o", "Fol"]
+- format - Example of formats are ["Br.", "Br", "(Br)", "(Br.)", "4:o", "8:o", "12:o", "Fol"], sometimes handwritten
 - source_publication (usually preceded by "in:" or "i:" or "ur:")
 - series - often preceded by "serie" or "=", can be enclosed in slashes (“/”) or parentheses
 - isbn
@@ -43,7 +44,7 @@ Please OCR the text and extract these fields if present:
 - call_number (usually in the top right corner, first alphabetic part of classification_code, e.g. "QB ", if "Shelf" is present, call_number call_number can be excluded in response
 - main_heading - usually in top left corner, often in the form of a single word or short sentence, usually underlined with a dashed line, e.g. "Physics" (underlined with dashed line)
 - subject_headings (as a list if there are multiple)
-- items (repeatable, usually located in the bottom left corner or centered, normally notated accession numbers [short year + number, e.g. "53.123"]), sometimes preceded by an abbreviation, e.g. "Sv.", that should be included in response, usually typed)
+- items (repeatable, usually located in the bottom left corner or centered, normally notated accession numbers [short year + number, e.g. "53.123"]), sometimes preceded by an abbreviation, e.g. "Sv.", that should be included in response, usually typed, remove any trailing dots "." from items in response)
 - reference (usually preceded by "se: " or "se " or "hänvis" or "ref:")
 - notes
 - bottom_note (bottom center, usually an acronym, e.g. ["vb" or "kh"])
